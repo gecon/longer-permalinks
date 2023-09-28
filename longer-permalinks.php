@@ -11,7 +11,7 @@ Useful for permalinks using non latin characters in URLs. Long permalinks will n
 
 Author: Giannis Economou
 
-Version: 1.28
+Version: 1.29
 
 Author URI: http://www.antithesis.gr
 
@@ -19,7 +19,7 @@ Author URI: http://www.antithesis.gr
 
 defined( 'ABSPATH' ) OR exit;
 
-define('LONGER_PERMALINKS_PLUGIN_VERSION', "128");
+define('LONGER_PERMALINKS_PLUGIN_VERSION', "129");
 define('REDEF_FILE', WP_PLUGIN_DIR."/longer-permalinks/sanitize_override.inc");
 
 register_activation_hook( __FILE__, 'longer_permalinks_plugin_install' );
@@ -34,7 +34,7 @@ $current_db_ver = get_option('db_version');
 $redefined = file_exists(REDEF_FILE);
 
 // First install or updating plugin from 1.14- or updating version 1.20
-if ( empty($last_plugin_ver) || ($last_plugin_ver == '') || $last_plugin_ver == '120' ) {
+if ( empty($last_plugin_ver) || ($last_plugin_ver == '') || $last_plugin_ver < '129' ) {
         // Mark the need to backup all post_names so far
         update_option( 'longer-permalinks-backup-needed', 1 );
         update_option( 'longer-permalinks-wpver', $current_wp_ver );
@@ -104,13 +104,7 @@ function longer_permalinks_backup_post_name_on_update($post_ID, $post_after) {
     if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
             return;
     }
-    // Get the post object before the update
-    $post_before = get_post($post_ID);
-
-    // Update post name if changed.
-    if ($post_before->post_name === $post_after->post_name) {
-            return;
-    }
+    
     update_post_meta($post_ID, 'longer-permalinks-post-name-longer', $post_after->post_name);
 }
 
