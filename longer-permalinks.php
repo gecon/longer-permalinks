@@ -11,7 +11,7 @@ Useful for permalinks using non latin characters in URLs. Long permalinks will n
 
 Author: Giannis Economou
 
-Version: 1.31
+Version: 1.32
 
 Author URI: http://www.antithesis.gr
 
@@ -19,7 +19,7 @@ Author URI: http://www.antithesis.gr
 
 defined( 'ABSPATH' ) OR exit;
 
-define('LONGER_PERMALINKS_PLUGIN_VERSION', "131");
+define('LONGER_PERMALINKS_PLUGIN_VERSION', "132");
 define('REDEF_FILE', WP_PLUGIN_DIR."/longer-permalinks/sanitize_override.inc");
 
 register_activation_hook( __FILE__, 'longer_permalinks_plugin_install' );
