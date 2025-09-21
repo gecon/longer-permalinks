@@ -4,7 +4,7 @@ Author link: http://www.antithesis.gr
 Tags: permalinks, long, slugs, slugs length, long title, post_name size, titles, non-latin, url, permalinks limitation, long url, long slug
 Requires at least: 4.0
 Tested up to: 6.5.5
-Stable tag: 1.30
+Stable tag: 1.31
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -32,6 +32,9 @@ This plugin is really useful especially in non-latin slugs because of the requir
 3. That's it!
 
 == Changelog ==
+
+= 1.31 =
+* Bug fix: Fixing regression that came up at v1.30 related to advanced-custom-fields (ACF) plugin post types. Credits: @nevma
 
 = 1.30 =
 * Bug fix: Properly handle advanced-custom-fields (ACF) plugin post types. Credits: @sotosx
